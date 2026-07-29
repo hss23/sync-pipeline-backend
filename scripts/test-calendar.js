@@ -3,12 +3,16 @@ import { CalendarAdapter } from '../src/services/adapters/calendarAdapter.js';
 
 console.log('=== Google Calendar API Diagnostic Tool ===\n');
 
-const token = process.env.GOOGLE_CALENDAR_ACCESS_TOKEN || process.env.GOOGLE_CALENDAR_REFRESH_TOKEN;
+const token = process.env.GOOGLE_CALENDAR_ACCESS_TOKEN || process.env.GOOGLE_CALENDAR_REFRESH_TOKEN || process.env.GOOGLE_CALENDAR_CLIENT_ID;
 if (!token) {
   console.log('ℹ️ Google Calendar credentials not detected in .env.');
   console.log('Running adapter in Mock Seed mode...\n');
 } else {
-  console.log('🔑 Google Calendar API configuration detected in .env.\n');
+  console.log('🔑 Google Calendar OAuth credentials detected in .env.');
+  if (!process.env.GOOGLE_CALENDAR_REFRESH_TOKEN && !process.env.GOOGLE_CALENDAR_ACCESS_TOKEN) {
+    console.log('💡 Note: Add GOOGLE_CALENDAR_REFRESH_TOKEN to .env to enable automatic OAuth token generation.');
+  }
+  console.log('');
 }
 
 const adapter = new CalendarAdapter();
