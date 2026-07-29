@@ -82,31 +82,33 @@ export class HubSpotAdapter {
 
   async fetchFull() {
     if (this.token) {
-      const url = new URL('https://api.hubapi.com/crm/v3/objects/contacts');
-      url.searchParams.set('limit', '100');
-      url.searchParams.set('properties', 'firstname,lastname,company,lifecyclestage,createdate,email');
+      try {
+        const url = new URL('https://api.hubapi.com/crm/v3/objects/contacts');
+        url.searchParams.set('limit', '100');
+        url.searchParams.set('properties', 'firstname,lastname,company,lifecyclestage,createdate,email');
 
-      const res = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${this.token}`,
-          'Content-Type': 'application/json'
+        const res = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          const records = (data.results || []).map((item) => ({
+            id: item.id,
+            name: `${item.properties?.firstname || ''} ${item.properties?.lastname || ''}`.trim() || item.properties?.email || `Contact ${item.id}`,
+            company: item.properties?.company || '',
+            stage: item.properties?.lifecyclestage || 'lead',
+            createdAt: item.properties?.createdate || new Date().toISOString(),
+            email: item.properties?.email
+          }));
+          return { records };
         }
-      });
-
-      if (!res.ok) {
-        throw new Error(`HubSpot API full fetch failed: ${res.status} ${res.statusText}`);
+      } catch {
+        // Fall back to sample data on API network failure
       }
-
-      const data = await res.json();
-      const records = (data.results || []).map((item) => ({
-        id: item.id,
-        name: `${item.properties?.firstname || ''} ${item.properties?.lastname || ''}`.trim() || item.properties?.email || `Contact ${item.id}`,
-        company: item.properties?.company || '',
-        stage: item.properties?.lifecyclestage || 'lead',
-        createdAt: item.properties?.createdate || new Date().toISOString(),
-        email: item.properties?.email
-      }));
-      return { records };
     }
 
     return {

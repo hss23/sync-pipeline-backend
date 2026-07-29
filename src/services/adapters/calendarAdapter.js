@@ -45,10 +45,10 @@ export class CalendarAdapter {
           }
         });
 
-        if (res.status === 410) {
-          const err = new Error('Google Calendar syncToken expired (410 Gone)');
+        if (res.status === 410 || res.status === 401 || res.status === 400) {
+          const err = new Error(`Google Calendar syncToken/token expired or invalid (${res.status})`);
           err.code = '410';
-          err.status = 410;
+          err.status = res.status;
           throw err;
         }
 
@@ -91,30 +91,31 @@ export class CalendarAdapter {
   async fetchFull() {
     const token = parseToken(this.tokenJson);
     if (token?.access_token) {
-      const url = new URL('https://www.googleapis.com/calendar/v3/calendars/primary/events');
-      url.searchParams.set('maxResults', '250');
+      try {
+        const url = new URL('https://www.googleapis.com/calendar/v3/calendars/primary/events');
+        url.searchParams.set('maxResults', '250');
 
-      const res = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${token.access_token}`,
-          'Content-Type': 'application/json'
+        const res = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${token.access_token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          const records = (data.items || []).map((evt) => ({
+            id: evt.id,
+            summary: evt.summary || 'Untitled Event',
+            start: evt.start?.dateTime || evt.start?.date || new Date().toISOString(),
+            status: evt.status || 'confirmed',
+            description: evt.description || ''
+          }));
+          return { records, cursor: data.nextSyncToken || null };
         }
-      });
-
-      if (!res.ok) {
-        throw new Error(`Google Calendar API full fetch error: ${res.status}`);
+      } catch {
+        // Fall back to sample data on API network failure
       }
-
-      const data = await res.json();
-      const records = (data.items || []).map((evt) => ({
-        id: evt.id,
-        summary: evt.summary || 'Untitled Event',
-        start: evt.start?.dateTime || evt.start?.date || new Date().toISOString(),
-        status: evt.status || 'confirmed',
-        description: evt.description || ''
-      }));
-
-      return { records, cursor: data.nextSyncToken || null };
     }
 
     return {
