@@ -1,15 +1,222 @@
 {
   "info": {
-    "name": "Sync Pipeline Backend",
+    "_postman_id": "a9b2c3d4-e5f6-47a8-9900-112233445566",
+    "name": "Sync Pipeline Backend API",
+    "description": "Comprehensive Postman collection for the resilient Multi-Source ETL Sync Pipeline (HubSpot CRM, Payments Processor, Google Calendar Events).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
-    {"name":"Health","request":{"method":"GET","url":"{{baseUrl}}/health"}},
-    {"name":"Seed sample data","request":{"method":"POST","url":"{{baseUrl}}/admin/seed"}},
-    {"name":"Run sync","request":{"method":"POST","url":"{{baseUrl}}/sync/run","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"sources\": [\"hubspot\", \"payments\", \"calendar\"]\n}"}}},
-    {"name":"Get normalized records","request":{"method":"GET","url":"{{baseUrl}}/records"}},
-    {"name":"Get sync status","request":{"method":"GET","url":"{{baseUrl}}/admin/sync/status"}},
-    {"name":"Webhook example","request":{"method":"POST","url":"{{baseUrl}}/webhook/hubspot","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"id\": \"hs-999\",\n  \"name\": \"Webhook contact\",\n  \"stage\": \"lead\"\n}"}}}
+    {
+      "name": "System Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        },
+        "description": "Check backend service health and operational status."
+      }
+    },
+    {
+      "name": "Seed Sample Data",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/admin/seed",
+          "host": ["{{baseUrl}}"],
+          "path": ["admin", "seed"]
+        },
+        "description": "Seed store with initial sample records across HubSpot, Payments, and Calendar."
+      }
+    },
+    {
+      "name": "Run Multi-Source Sync",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sources\": [\"hubspot\", \"payments\", \"calendar\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sync/run",
+          "host": ["{{baseUrl}}"],
+          "path": ["sync", "run"]
+        },
+        "description": "Triggers multi-source ingestion. Automatically falls back to full backfill on 410/stale cursor and isolates failures per source."
+      }
+    },
+    {
+      "name": "Trigger Stale Cursor 410 Fallback",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sources\": [\"hubspot\", \"payments\", \"calendar\"],\n  \"forceStaleCursorFor\": [\"payments\", \"calendar\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sync/run",
+          "host": ["{{baseUrl}}"],
+          "path": ["sync", "run"]
+        },
+        "description": "Simulates an expired 410 cursor on payments/calendar to verify automatic recovery and full backfill fallback."
+      }
+    },
+    {
+      "name": "Trigger Partial Failure Isolation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sources\": [\"hubspot\", \"payments\", \"calendar\"],\n  \"simulateErrorFor\": [\"hubspot\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sync/run",
+          "host": ["{{baseUrl}}"],
+          "path": ["sync", "run"]
+        },
+        "description": "Simulates a 500/garbage error on HubSpot to verify that Payments and Calendar still land their data."
+      }
+    },
+    {
+      "name": "Get Normalized Records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/records",
+          "host": ["{{baseUrl}}"],
+          "path": ["records"]
+        },
+        "description": "Retrieves all ingested records in the unified normalized schema."
+      }
+    },
+    {
+      "name": "Get Sync Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/admin/sync/status",
+          "host": ["{{baseUrl}}"],
+          "path": ["admin", "sync", "status"]
+        },
+        "description": "Returns current cursor timestamps, sync mode, last success time, and error states per source."
+      }
+    },
+    {
+      "name": "Webhook - HubSpot Contact",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"hs-wh-888\",\n  \"name\": \"Sarah Connor\",\n  \"company\": \"Cyberdyne\",\n  \"stage\": \"customer\",\n  \"email\": \"sarah@cyberdyne.com\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/webhook/hubspot",
+          "host": ["{{baseUrl}}"],
+          "path": ["webhook", "hubspot"]
+        },
+        "description": "Ingests a HubSpot contact webhook payload idempotently."
+      }
+    },
+    {
+      "name": "Webhook - Payments Invoice",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"pay-wh-777\",\n  \"invoiceNo\": \"INV-WH-777\",\n  \"amount\": 1500.50,\n  \"status\": \"paid\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/webhook/payments",
+          "host": ["{{baseUrl}}"],
+          "path": ["webhook", "payments"]
+        },
+        "description": "Ingests a Payments invoice webhook payload idempotently."
+      }
+    },
+    {
+      "name": "Webhook - Calendar Event",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"evt-wh-666\",\n  \"summary\": \"Product Architecture Review\",\n  \"start\": \"2026-08-05T15:00:00Z\",\n  \"status\": \"confirmed\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/webhook/calendar",
+          "host": ["{{baseUrl}}"],
+          "path": ["webhook", "calendar"]
+        },
+        "description": "Ingests a Calendar event webhook payload idempotently."
+      }
+    },
+    {
+      "name": "Webhook - Garbage Payload (Expect 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"corruptData\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/webhook/hubspot",
+          "host": ["{{baseUrl}}"],
+          "path": ["webhook", "hubspot"]
+        },
+        "description": "Tests rejection of malformed or missing natural key payload with HTTP 400 Bad Request."
+      }
+    }
   ],
-  "variable":[{"key":"baseUrl","value":"http://localhost:3000"}]
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
 }

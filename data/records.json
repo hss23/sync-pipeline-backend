@@ -116,5 +116,126 @@
     },
     "createdAt": "2026-07-29T12:54:14.944Z",
     "updatedAt": "2026-07-29T12:54:14.944Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-101",
+    "subject": "INV-2026-001",
+    "amount": 1250,
+    "occurredAt": "2026-07-29T12:00:00Z",
+    "status": "paid",
+    "metadata": {
+      "id": "pay-101",
+      "invoiceNo": "INV-2026-001",
+      "amount": 1250,
+      "status": "paid",
+      "createdAt": "2026-07-29T12:00:00Z",
+      "currency": "USD",
+      "externalId": "pay-101"
+    },
+    "id": "df0b1233-0772-45e2-9f0d-30fa1e0ccbf5",
+    "createdAt": "2026-07-29T14:34:15.499Z",
+    "updatedAt": "2026-07-29T14:34:34.245Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-102",
+    "subject": "INV-2026-002",
+    "amount": 890.5,
+    "occurredAt": "2026-07-29T13:00:00Z",
+    "status": "pending",
+    "metadata": {
+      "id": "pay-102",
+      "invoiceNo": "INV-2026-002",
+      "amount": 890.5,
+      "status": "pending",
+      "createdAt": "2026-07-29T13:00:00Z",
+      "currency": "USD",
+      "externalId": "pay-102"
+    },
+    "id": "9228aafd-f213-48cd-9169-769b8e3026cd",
+    "createdAt": "2026-07-29T14:34:15.499Z",
+    "updatedAt": "2026-07-29T14:34:34.245Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-103",
+    "subject": "INV-2026-003",
+    "amount": 3400,
+    "occurredAt": "2026-07-29T15:30:00Z",
+    "status": "paid",
+    "metadata": {
+      "id": "pay-103",
+      "invoiceNo": "INV-2026-003",
+      "amount": 3400,
+      "status": "paid",
+      "createdAt": "2026-07-29T15:30:00Z",
+      "currency": "USD",
+      "externalId": "pay-103"
+    },
+    "id": "61a08018-cfea-4359-8f9e-62a6748b5459",
+    "createdAt": "2026-07-29T14:34:15.499Z",
+    "updatedAt": "2026-07-29T14:34:34.245Z"
+  },
+  {
+    "source": "hubspot",
+    "sourceRecordType": "contact",
+    "externalId": "528244182715",
+    "subject": "Brian Halligan (Sample Contact)",
+    "amount": null,
+    "occurredAt": "2026-07-29T13:46:16.847Z",
+    "status": "lead",
+    "metadata": {
+      "id": "528244182715",
+      "name": "Brian Halligan (Sample Contact)",
+      "company": "HubSpot",
+      "stage": "lead",
+      "createdAt": "2026-07-29T13:46:16.847Z",
+      "email": "bh@hubspot.com"
+    },
+    "id": "f46d9c19-3c44-40ae-9d78-b57755a0091c",
+    "createdAt": "2026-07-29T14:34:17.594Z",
+    "updatedAt": "2026-07-29T14:34:35.265Z"
+  },
+  {
+    "source": "hubspot",
+    "sourceRecordType": "contact",
+    "externalId": "528244349680",
+    "subject": "Maria Johnson (Sample Contact)",
+    "amount": null,
+    "occurredAt": "2026-07-29T13:46:16.325Z",
+    "status": "lead",
+    "metadata": {
+      "id": "528244349680",
+      "name": "Maria Johnson (Sample Contact)",
+      "company": "HubSpot",
+      "stage": "lead",
+      "createdAt": "2026-07-29T13:46:16.325Z",
+      "email": "emailmaria@hubspot.com"
+    },
+    "id": "bd8333a3-474a-4c75-83d8-a205478aabf3",
+    "createdAt": "2026-07-29T14:34:17.594Z",
+    "updatedAt": "2026-07-29T14:34:35.265Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-live-999",
+    "subject": "INV-LIVE-999",
+    "amount": 4999.99,
+    "occurredAt": "2026-07-29T14:35:28.031Z",
+    "status": "paid",
+    "metadata": {
+      "id": "pay-live-999",
+      "invoiceNo": "INV-LIVE-999",
+      "amount": 4999.99,
+      "status": "paid"
+    },
+    "id": "e886b8aa-b0b4-46a5-b37c-196337c28746",
+    "createdAt": "2026-07-29T14:34:49.124Z",
+    "updatedAt": "2026-07-29T14:35:28.031Z"
   }
 ]
