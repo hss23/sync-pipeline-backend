@@ -1,0 +1,15 @@
+{
+  "info": {
+    "name": "Sync Pipeline Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name":"Health","request":{"method":"GET","url":"{{baseUrl}}/health"}},
+    {"name":"Seed sample data","request":{"method":"POST","url":"{{baseUrl}}/admin/seed"}},
+    {"name":"Run sync","request":{"method":"POST","url":"{{baseUrl}}/sync/run","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"sources\": [\"hubspot\", \"payments\", \"calendar\"]\n}"}}},
+    {"name":"Get normalized records","request":{"method":"GET","url":"{{baseUrl}}/records"}},
+    {"name":"Get sync status","request":{"method":"GET","url":"{{baseUrl}}/admin/sync/status"}},
+    {"name":"Webhook example","request":{"method":"POST","url":"{{baseUrl}}/webhook/hubspot","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"id\": \"hs-999\",\n  \"name\": \"Webhook contact\",\n  \"stage\": \"lead\"\n}"}}}
+  ],
+  "variable":[{"key":"baseUrl","value":"http://localhost:3000"}]
+}

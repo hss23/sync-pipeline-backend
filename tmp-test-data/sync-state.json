@@ -1,0 +1,26 @@
+{
+  "hubspot": {
+    "cursor": "hs-cursor-v1-next-next",
+    "lastSuccessAt": "2026-07-29T13:25:11.091Z",
+    "lastError": "Source hubspot returned 500 internal server error / garbage response",
+    "lastErrorCode": "source_failure",
+    "lastMode": "incremental",
+    "updatedAt": "2026-07-29T13:25:11.107Z"
+  },
+  "payments": {
+    "cursor": "pay-cursor-full-v1-next",
+    "lastSuccessAt": "2026-07-29T13:25:11.107Z",
+    "lastError": null,
+    "lastErrorCode": null,
+    "lastMode": "incremental",
+    "updatedAt": "2026-07-29T13:25:11.107Z"
+  },
+  "calendar": {
+    "cursor": "cal-sync-token-full-v1-next",
+    "lastSuccessAt": "2026-07-29T13:25:11.108Z",
+    "lastError": null,
+    "lastErrorCode": null,
+    "lastMode": "incremental",
+    "updatedAt": "2026-07-29T13:25:11.108Z"
+  }
+}

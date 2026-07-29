@@ -1,0 +1,120 @@
+[
+  {
+    "id": "70032ba6-3cec-4c2a-9e04-10d7c1c95c00",
+    "source": "hubspot",
+    "sourceRecordType": "contact",
+    "externalId": "hs-001",
+    "subject": "Ava Patel",
+    "amount": null,
+    "occurredAt": "2026-07-29T10:00:00Z",
+    "status": "lead",
+    "metadata": {
+      "id": "hs-001",
+      "name": "Ava Patel",
+      "company": "Northwind",
+      "createdAt": "2026-07-29T10:00:00Z",
+      "stage": "lead",
+      "externalId": "hs-001"
+    },
+    "createdAt": "2026-07-29T12:54:14.943Z",
+    "updatedAt": "2026-07-29T12:54:14.944Z"
+  },
+  {
+    "id": "ced25aff-7224-443e-9756-eb7a6499c95c",
+    "source": "hubspot",
+    "sourceRecordType": "contact",
+    "externalId": "hs-002",
+    "subject": "Liam Ortiz",
+    "amount": null,
+    "occurredAt": "2026-07-29T11:30:00Z",
+    "status": "customer",
+    "metadata": {
+      "id": "hs-002",
+      "name": "Liam Ortiz",
+      "company": "Blue Mesa",
+      "createdAt": "2026-07-29T11:30:00Z",
+      "stage": "customer",
+      "externalId": "hs-002"
+    },
+    "createdAt": "2026-07-29T12:54:14.944Z",
+    "updatedAt": "2026-07-29T12:54:14.944Z"
+  },
+  {
+    "id": "00c0d0b1-f6eb-46cc-8623-3161ef3c1b6d",
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-001",
+    "subject": "payments record",
+    "amount": 1250,
+    "occurredAt": "2026-07-29T12:00:00Z",
+    "status": "paid",
+    "metadata": {
+      "id": "pay-001",
+      "invoiceNo": "INV-1001",
+      "amount": 1250,
+      "status": "paid",
+      "createdAt": "2026-07-29T12:00:00Z",
+      "externalId": "pay-001"
+    },
+    "createdAt": "2026-07-29T12:54:14.944Z",
+    "updatedAt": "2026-07-29T12:54:14.944Z"
+  },
+  {
+    "id": "9240ace8-9fd9-4890-9077-a91a2e2e0cb8",
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-002",
+    "subject": "payments record",
+    "amount": 890,
+    "occurredAt": "2026-07-29T13:00:00Z",
+    "status": "pending",
+    "metadata": {
+      "id": "pay-002",
+      "invoiceNo": "INV-1002",
+      "amount": 890,
+      "status": "pending",
+      "createdAt": "2026-07-29T13:00:00Z",
+      "externalId": "pay-002"
+    },
+    "createdAt": "2026-07-29T12:54:14.944Z",
+    "updatedAt": "2026-07-29T12:54:14.944Z"
+  },
+  {
+    "id": "4b552362-2db8-4ba8-8a9e-9ab60104c93d",
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-001",
+    "subject": "Quarterly review",
+    "amount": null,
+    "occurredAt": "2026-07-30T14:00:00Z",
+    "status": "confirmed",
+    "metadata": {
+      "id": "evt-001",
+      "summary": "Quarterly review",
+      "start": "2026-07-30T14:00:00Z",
+      "status": "confirmed",
+      "externalId": "evt-001"
+    },
+    "createdAt": "2026-07-29T12:54:14.944Z",
+    "updatedAt": "2026-07-29T12:54:14.944Z"
+  },
+  {
+    "id": "fc55dbee-d8c3-4f94-862f-7739a14ebb1b",
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-002",
+    "subject": "Design sync",
+    "amount": null,
+    "occurredAt": "2026-07-31T09:00:00Z",
+    "status": "tentative",
+    "metadata": {
+      "id": "evt-002",
+      "summary": "Design sync",
+      "start": "2026-07-31T09:00:00Z",
+      "status": "tentative",
+      "externalId": "evt-002"
+    },
+    "createdAt": "2026-07-29T12:54:14.944Z",
+    "updatedAt": "2026-07-29T12:54:14.944Z"
+  }
+]

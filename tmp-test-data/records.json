@@ -1,0 +1,206 @@
+[
+  {
+    "source": "hubspot",
+    "sourceRecordType": "contact",
+    "externalId": "hs-101",
+    "subject": "Ava Patel",
+    "amount": null,
+    "occurredAt": "2026-07-29T10:00:00Z",
+    "status": "lead",
+    "metadata": {
+      "id": "hs-101",
+      "name": "Ava Patel",
+      "company": "Northwind Traders",
+      "stage": "lead",
+      "createdAt": "2026-07-29T10:00:00Z",
+      "email": "ava@northwind.com",
+      "externalId": "hs-101"
+    },
+    "id": "522d5812-5c47-4d1b-9f38-2d17153d339b",
+    "createdAt": "2026-07-29T13:25:11.012Z",
+    "updatedAt": "2026-07-29T13:25:11.091Z"
+  },
+  {
+    "source": "hubspot",
+    "sourceRecordType": "contact",
+    "externalId": "hs-102",
+    "subject": "Liam Ortiz",
+    "amount": null,
+    "occurredAt": "2026-07-29T11:30:00Z",
+    "status": "customer",
+    "metadata": {
+      "id": "hs-102",
+      "name": "Liam Ortiz",
+      "company": "Blue Mesa Tech",
+      "stage": "customer",
+      "createdAt": "2026-07-29T11:30:00Z",
+      "email": "liam@bluemesa.com",
+      "externalId": "hs-102"
+    },
+    "id": "8d97e57a-6fe4-4c1f-a577-807aa10ea68f",
+    "createdAt": "2026-07-29T13:25:11.012Z",
+    "updatedAt": "2026-07-29T13:25:11.091Z"
+  },
+  {
+    "source": "hubspot",
+    "sourceRecordType": "contact",
+    "externalId": "hs-103",
+    "subject": "Sophia Chen",
+    "amount": null,
+    "occurredAt": "2026-07-29T14:15:00Z",
+    "status": "opportunity",
+    "metadata": {
+      "id": "hs-103",
+      "name": "Sophia Chen",
+      "company": "Apex Global",
+      "stage": "opportunity",
+      "createdAt": "2026-07-29T14:15:00Z",
+      "email": "sophia@apex.com",
+      "externalId": "hs-103"
+    },
+    "id": "eb58f20c-db93-4d26-bf4b-3c401035e1e6",
+    "createdAt": "2026-07-29T13:25:11.012Z",
+    "updatedAt": "2026-07-29T13:25:11.091Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-101",
+    "subject": "INV-2026-001",
+    "amount": 1250,
+    "occurredAt": "2026-07-29T12:00:00Z",
+    "status": "paid",
+    "metadata": {
+      "id": "pay-101",
+      "invoiceNo": "INV-2026-001",
+      "amount": 1250,
+      "status": "paid",
+      "createdAt": "2026-07-29T12:00:00Z",
+      "currency": "USD",
+      "externalId": "pay-101"
+    },
+    "id": "1fba8a6d-aa4f-44ed-8942-e9774a19f696",
+    "createdAt": "2026-07-29T13:25:11.012Z",
+    "updatedAt": "2026-07-29T13:25:11.107Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-102",
+    "subject": "INV-2026-002",
+    "amount": 890.5,
+    "occurredAt": "2026-07-29T13:00:00Z",
+    "status": "pending",
+    "metadata": {
+      "id": "pay-102",
+      "invoiceNo": "INV-2026-002",
+      "amount": 890.5,
+      "status": "pending",
+      "createdAt": "2026-07-29T13:00:00Z",
+      "currency": "USD",
+      "externalId": "pay-102"
+    },
+    "id": "efa39639-0389-4810-aaf8-987609431761",
+    "createdAt": "2026-07-29T13:25:11.012Z",
+    "updatedAt": "2026-07-29T13:25:11.107Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-103",
+    "subject": "INV-2026-003",
+    "amount": 3400,
+    "occurredAt": "2026-07-29T15:30:00Z",
+    "status": "paid",
+    "metadata": {
+      "id": "pay-103",
+      "invoiceNo": "INV-2026-003",
+      "amount": 3400,
+      "status": "paid",
+      "createdAt": "2026-07-29T15:30:00Z",
+      "currency": "USD",
+      "externalId": "pay-103"
+    },
+    "id": "5e1f01a6-8a54-4722-bad0-4b899a416eb4",
+    "createdAt": "2026-07-29T13:25:11.012Z",
+    "updatedAt": "2026-07-29T13:25:11.107Z"
+  },
+  {
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-101",
+    "subject": "Quarterly Executive Review",
+    "amount": null,
+    "occurredAt": "2026-07-30T14:00:00Z",
+    "status": "confirmed",
+    "metadata": {
+      "id": "evt-101",
+      "summary": "Quarterly Executive Review",
+      "start": "2026-07-30T14:00:00Z",
+      "status": "confirmed",
+      "description": "Strategy alignment",
+      "externalId": "evt-101"
+    },
+    "id": "cbc0a32e-160d-4457-9136-51c8ac0223c8",
+    "createdAt": "2026-07-29T13:25:11.013Z",
+    "updatedAt": "2026-07-29T13:25:11.108Z"
+  },
+  {
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-102",
+    "subject": "Engineering Architecture Sync",
+    "amount": null,
+    "occurredAt": "2026-07-31T09:00:00Z",
+    "status": "tentative",
+    "metadata": {
+      "id": "evt-102",
+      "summary": "Engineering Architecture Sync",
+      "start": "2026-07-31T09:00:00Z",
+      "status": "tentative",
+      "description": "Pipeline review",
+      "externalId": "evt-102"
+    },
+    "id": "3426a043-786c-4549-be8e-f7d6117fa28f",
+    "createdAt": "2026-07-29T13:25:11.013Z",
+    "updatedAt": "2026-07-29T13:25:11.108Z"
+  },
+  {
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-103",
+    "subject": "Customer Onboarding Kickoff",
+    "amount": null,
+    "occurredAt": "2026-08-01T16:00:00Z",
+    "status": "confirmed",
+    "metadata": {
+      "id": "evt-103",
+      "summary": "Customer Onboarding Kickoff",
+      "start": "2026-08-01T16:00:00Z",
+      "status": "confirmed",
+      "description": "Northwind onboarding",
+      "externalId": "evt-103"
+    },
+    "id": "78695bb1-64fd-46cc-b58a-05e2396df807",
+    "createdAt": "2026-07-29T13:25:11.013Z",
+    "updatedAt": "2026-07-29T13:25:11.108Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "pay-999",
+    "subject": "INV-999",
+    "amount": 500,
+    "occurredAt": "2026-07-29T13:25:11.154Z",
+    "status": "paid",
+    "metadata": {
+      "id": "pay-999",
+      "invoiceNo": "INV-999",
+      "amount": 500,
+      "status": "paid"
+    },
+    "id": "9337d59f-dabb-479a-b603-f7336938c18d",
+    "createdAt": "2026-07-29T13:25:11.135Z",
+    "updatedAt": "2026-07-29T13:25:11.154Z"
+  }
+]

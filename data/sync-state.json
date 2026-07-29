@@ -1,0 +1,26 @@
+{
+  "hubspot": {
+    "cursor": "hubspot-cursor-1",
+    "lastSuccessAt": "2026-07-29T12:54:01.204Z",
+    "lastError": null,
+    "lastErrorCode": null,
+    "lastMode": "incremental",
+    "updatedAt": "2026-07-29T12:54:01.205Z"
+  },
+  "payments": {
+    "cursor": null,
+    "lastSuccessAt": "2026-07-29T12:54:01.205Z",
+    "lastError": "Incremental cursor is stale",
+    "lastErrorCode": "stale_cursor",
+    "lastMode": "fullbackfill",
+    "updatedAt": "2026-07-29T12:54:01.205Z"
+  },
+  "calendar": {
+    "cursor": "calendar-cursor-1",
+    "lastSuccessAt": "2026-07-29T12:54:01.205Z",
+    "lastError": null,
+    "lastErrorCode": null,
+    "lastMode": "incremental",
+    "updatedAt": "2026-07-29T12:54:01.205Z"
+  }
+}
