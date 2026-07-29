@@ -1,26 +1,26 @@
 {
   "hubspot": {
     "cursor": null,
-    "lastSuccessAt": "2026-07-29T14:34:35.265Z",
+    "lastSuccessAt": "2026-07-29T16:08:18.799Z",
     "lastError": null,
     "lastErrorCode": null,
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T14:34:35.265Z"
+    "updatedAt": "2026-07-29T16:08:18.799Z"
   },
   "payments": {
-    "cursor": "pay-cursor-v1-next",
-    "lastSuccessAt": "2026-07-29T14:34:34.245Z",
+    "cursor": "pay-cursor-v1-next-next",
+    "lastSuccessAt": "2026-07-29T16:08:16.770Z",
     "lastError": null,
     "lastErrorCode": null,
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T14:34:34.245Z"
+    "updatedAt": "2026-07-29T16:08:16.770Z"
   },
   "calendar": {
-    "cursor": "calendar-cursor-1",
-    "lastSuccessAt": "2026-07-29T12:54:01.205Z",
-    "lastError": "Google Calendar API error: 400 Bad Request",
-    "lastErrorCode": "source_error",
-    "lastMode": "incremental",
-    "updatedAt": "2026-07-29T14:34:34.750Z"
+    "cursor": "cal-sync-token-full-v1",
+    "lastSuccessAt": "2026-07-29T16:08:17.397Z",
+    "lastError": "Google Calendar syncToken/token expired or invalid (401)",
+    "lastErrorCode": "410",
+    "lastMode": "fullbackfill",
+    "updatedAt": "2026-07-29T16:08:17.397Z"
   }
 }

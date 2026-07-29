@@ -4,19 +4,49 @@ const sampleCalendarEvents = [
   { id: 'evt-103', summary: 'Customer Onboarding Kickoff', start: '2026-08-01T16:00:00Z', status: 'confirmed', description: 'Northwind onboarding' }
 ];
 
-function parseToken(input) {
-  if (!input) return null;
-  if (typeof input === 'object') return input;
-  try {
-    return JSON.parse(input);
-  } catch {
-    return null;
+async function getValidAccessToken(options = {}) {
+  let accessToken = options.accessToken || process.env.GOOGLE_CALENDAR_ACCESS_TOKEN;
+  if (accessToken) return accessToken;
+
+  const refreshToken = options.refreshToken || process.env.GOOGLE_CALENDAR_REFRESH_TOKEN;
+  const clientId = options.clientId || process.env.GOOGLE_CALENDAR_CLIENT_ID;
+  const clientSecret = options.clientSecret || process.env.GOOGLE_CALENDAR_CLIENT_SECRET;
+
+  if (refreshToken && clientId && clientSecret) {
+    try {
+      const res = await fetch('https://oauth2.googleapis.com/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          client_id: clientId,
+          client_secret: clientSecret,
+          refresh_token: refreshToken,
+          grant_type: 'refresh_token'
+        })
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        return data.access_token || null;
+      }
+    } catch {
+      return null;
+    }
   }
+  return null;
 }
 
 export class CalendarAdapter {
-  constructor({ tokenJson = process.env.GOOGLE_CALENDAR_TOKEN_JSON } = {}) {
-    this.tokenJson = tokenJson;
+  constructor({
+    accessToken = process.env.GOOGLE_CALENDAR_ACCESS_TOKEN,
+    refreshToken = process.env.GOOGLE_CALENDAR_REFRESH_TOKEN,
+    clientId = process.env.GOOGLE_CALENDAR_CLIENT_ID,
+    clientSecret = process.env.GOOGLE_CALENDAR_CLIENT_SECRET
+  } = {}) {
+    this.accessToken = accessToken;
+    this.refreshToken = refreshToken;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
     this.source = 'calendar';
   }
 
@@ -28,8 +58,9 @@ export class CalendarAdapter {
       throw err;
     }
 
-    const token = parseToken(this.tokenJson);
-    if (token?.access_token) {
+    let token = await getValidAccessToken(this);
+
+    if (token) {
       try {
         const url = new URL('https://www.googleapis.com/calendar/v3/calendars/primary/events');
         url.searchParams.set('maxResults', '250');
@@ -38,12 +69,24 @@ export class CalendarAdapter {
           url.searchParams.set('syncToken', cursor);
         }
 
-        const res = await fetch(url, {
+        let res = await fetch(url, {
           headers: {
-            Authorization: `Bearer ${token.access_token}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
           }
         });
+
+        if (res.status === 401 && (this.refreshToken || process.env.GOOGLE_CALENDAR_REFRESH_TOKEN)) {
+          token = await getValidAccessToken({ ...this, accessToken: null });
+          if (token) {
+            res = await fetch(url, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              }
+            });
+          }
+        }
 
         if (res.status === 410 || res.status === 401 || res.status === 400) {
           const err = new Error(`Google Calendar syncToken/token expired or invalid (${res.status})`);
@@ -89,18 +132,31 @@ export class CalendarAdapter {
   }
 
   async fetchFull() {
-    const token = parseToken(this.tokenJson);
-    if (token?.access_token) {
+    let token = await getValidAccessToken(this);
+
+    if (token) {
       try {
         const url = new URL('https://www.googleapis.com/calendar/v3/calendars/primary/events');
         url.searchParams.set('maxResults', '250');
 
-        const res = await fetch(url, {
+        let res = await fetch(url, {
           headers: {
-            Authorization: `Bearer ${token.access_token}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
           }
         });
+
+        if (res.status === 401 && (this.refreshToken || process.env.GOOGLE_CALENDAR_REFRESH_TOKEN)) {
+          token = await getValidAccessToken({ ...this, accessToken: null });
+          if (token) {
+            res = await fetch(url, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              }
+            });
+          }
+        }
 
         if (res.ok) {
           const data = await res.json();

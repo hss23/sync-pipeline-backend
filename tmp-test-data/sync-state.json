@@ -1,26 +1,26 @@
 {
   "hubspot": {
     "cursor": "hs-cursor-v1-next-next",
-    "lastSuccessAt": "2026-07-29T16:07:21.470Z",
+    "lastSuccessAt": "2026-07-29T16:18:29.421Z",
     "lastError": "Source hubspot returned 500 internal server error / garbage response",
     "lastErrorCode": "source_failure",
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T16:07:21.778Z"
+    "updatedAt": "2026-07-29T16:18:29.445Z"
   },
   "payments": {
     "cursor": "pay-cursor-full-v1-next",
-    "lastSuccessAt": "2026-07-29T16:07:21.779Z",
+    "lastSuccessAt": "2026-07-29T16:18:29.445Z",
     "lastError": null,
     "lastErrorCode": null,
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T16:07:21.779Z"
+    "updatedAt": "2026-07-29T16:18:29.445Z"
   },
   "calendar": {
-    "cursor": "cal-sync-token-full-v1",
-    "lastSuccessAt": "2026-07-29T16:07:22.387Z",
-    "lastError": "Google Calendar syncToken/token expired or invalid (401)",
-    "lastErrorCode": "410",
-    "lastMode": "fullbackfill",
-    "updatedAt": "2026-07-29T16:07:22.387Z"
+    "cursor": "cal-sync-token-full-v1-next",
+    "lastSuccessAt": "2026-07-29T16:18:29.446Z",
+    "lastError": null,
+    "lastErrorCode": null,
+    "lastMode": "incremental",
+    "updatedAt": "2026-07-29T16:18:29.446Z"
   }
 }

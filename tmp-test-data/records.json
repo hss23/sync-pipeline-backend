@@ -16,9 +16,9 @@
       "email": "ava@northwind.com",
       "externalId": "hs-101"
     },
-    "id": "d0aa8a08-74ce-4d0f-aa78-159d9957b7b6",
-    "createdAt": "2026-07-29T16:07:19.347Z",
-    "updatedAt": "2026-07-29T16:07:21.470Z"
+    "id": "0ee75758-e9d0-4559-a5c2-4ee9ded19483",
+    "createdAt": "2026-07-29T16:18:29.041Z",
+    "updatedAt": "2026-07-29T16:18:29.421Z"
   },
   {
     "source": "hubspot",
@@ -37,9 +37,9 @@
       "email": "liam@bluemesa.com",
       "externalId": "hs-102"
     },
-    "id": "375d2e8e-54b8-4dbd-9772-8278f12a8df5",
-    "createdAt": "2026-07-29T16:07:19.347Z",
-    "updatedAt": "2026-07-29T16:07:21.470Z"
+    "id": "9b4cbb6c-4867-4932-8443-5aec98d210a3",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.421Z"
   },
   {
     "source": "hubspot",
@@ -58,9 +58,9 @@
       "email": "sophia@apex.com",
       "externalId": "hs-103"
     },
-    "id": "5ccf36d2-2a8f-4e75-baf2-b661d88b216a",
-    "createdAt": "2026-07-29T16:07:19.347Z",
-    "updatedAt": "2026-07-29T16:07:21.470Z"
+    "id": "22ae0842-c9a8-4e9f-85c1-d1cbbcfa4095",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.421Z"
   },
   {
     "source": "payments",
@@ -79,9 +79,9 @@
       "currency": "USD",
       "externalId": "pay-101"
     },
-    "id": "c83a9e4f-871f-4798-9223-9b2826e6525f",
-    "createdAt": "2026-07-29T16:07:19.347Z",
-    "updatedAt": "2026-07-29T16:07:21.779Z"
+    "id": "dc02883d-b966-4a83-ac01-8c9cf897c3b5",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.445Z"
   },
   {
     "source": "payments",
@@ -100,9 +100,9 @@
       "currency": "USD",
       "externalId": "pay-102"
     },
-    "id": "b174fe89-0461-41fd-b3a6-4c0d5c622853",
-    "createdAt": "2026-07-29T16:07:19.347Z",
-    "updatedAt": "2026-07-29T16:07:21.779Z"
+    "id": "aefdf7c8-d43e-40f2-ae1f-ae99b65e3465",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.445Z"
   },
   {
     "source": "payments",
@@ -121,9 +121,9 @@
       "currency": "USD",
       "externalId": "pay-103"
     },
-    "id": "9d63fed1-58c7-4317-ae40-b4ea22ae2359",
-    "createdAt": "2026-07-29T16:07:19.347Z",
-    "updatedAt": "2026-07-29T16:07:21.779Z"
+    "id": "0197bbb7-3b28-4db2-afa1-ecbf917499aa",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.445Z"
   },
   {
     "source": "calendar",
@@ -141,9 +141,9 @@
       "description": "Strategy alignment",
       "externalId": "evt-101"
     },
-    "id": "003b4ad7-7feb-459e-bb23-0f62c8553591",
-    "createdAt": "2026-07-29T16:07:19.936Z",
-    "updatedAt": "2026-07-29T16:07:22.387Z"
+    "id": "64945d4c-affb-4257-b83e-f99d0b3d739f",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.446Z"
   },
   {
     "source": "calendar",
@@ -161,9 +161,9 @@
       "description": "Pipeline review",
       "externalId": "evt-102"
     },
-    "id": "977a77be-d904-4f51-aabf-3751a44c1af8",
-    "createdAt": "2026-07-29T16:07:19.936Z",
-    "updatedAt": "2026-07-29T16:07:22.387Z"
+    "id": "d03cc78d-86f5-4392-8899-0cfffa099ae4",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.446Z"
   },
   {
     "source": "calendar",
@@ -181,9 +181,9 @@
       "description": "Northwind onboarding",
       "externalId": "evt-103"
     },
-    "id": "22bb1ebc-c72a-495a-932c-808010cb0034",
-    "createdAt": "2026-07-29T16:07:19.936Z",
-    "updatedAt": "2026-07-29T16:07:22.387Z"
+    "id": "01bdc790-29e4-41b2-a3ff-aa975a7d3e49",
+    "createdAt": "2026-07-29T16:18:29.042Z",
+    "updatedAt": "2026-07-29T16:18:29.446Z"
   },
   {
     "source": "payments",
@@ -191,7 +191,7 @@
     "externalId": "pay-999",
     "subject": "INV-999",
     "amount": 500,
-    "occurredAt": "2026-07-29T16:07:22.420Z",
+    "occurredAt": "2026-07-29T16:18:29.495Z",
     "status": "paid",
     "metadata": {
       "id": "pay-999",
@@ -199,8 +199,8 @@
       "amount": 500,
       "status": "paid"
     },
-    "id": "8659870c-e60c-47f6-ad8d-aa364b87ed21",
-    "createdAt": "2026-07-29T16:07:22.406Z",
-    "updatedAt": "2026-07-29T16:07:22.420Z"
+    "id": "496d3518-42c8-4890-8275-905d7ad833fd",
+    "createdAt": "2026-07-29T16:18:29.476Z",
+    "updatedAt": "2026-07-29T16:18:29.495Z"
   }
 ]

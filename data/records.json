@@ -136,7 +136,7 @@
     },
     "id": "df0b1233-0772-45e2-9f0d-30fa1e0ccbf5",
     "createdAt": "2026-07-29T14:34:15.499Z",
-    "updatedAt": "2026-07-29T14:34:34.245Z"
+    "updatedAt": "2026-07-29T16:08:16.770Z"
   },
   {
     "source": "payments",
@@ -157,7 +157,7 @@
     },
     "id": "9228aafd-f213-48cd-9169-769b8e3026cd",
     "createdAt": "2026-07-29T14:34:15.499Z",
-    "updatedAt": "2026-07-29T14:34:34.245Z"
+    "updatedAt": "2026-07-29T16:08:16.770Z"
   },
   {
     "source": "payments",
@@ -178,7 +178,7 @@
     },
     "id": "61a08018-cfea-4359-8f9e-62a6748b5459",
     "createdAt": "2026-07-29T14:34:15.499Z",
-    "updatedAt": "2026-07-29T14:34:34.245Z"
+    "updatedAt": "2026-07-29T16:08:16.770Z"
   },
   {
     "source": "hubspot",
@@ -198,7 +198,7 @@
     },
     "id": "f46d9c19-3c44-40ae-9d78-b57755a0091c",
     "createdAt": "2026-07-29T14:34:17.594Z",
-    "updatedAt": "2026-07-29T14:34:35.265Z"
+    "updatedAt": "2026-07-29T16:08:18.799Z"
   },
   {
     "source": "hubspot",
@@ -218,7 +218,7 @@
     },
     "id": "bd8333a3-474a-4c75-83d8-a205478aabf3",
     "createdAt": "2026-07-29T14:34:17.594Z",
-    "updatedAt": "2026-07-29T14:34:35.265Z"
+    "updatedAt": "2026-07-29T16:08:18.799Z"
   },
   {
     "source": "payments",
@@ -237,5 +237,83 @@
     "id": "e886b8aa-b0b4-46a5-b37c-196337c28746",
     "createdAt": "2026-07-29T14:34:49.124Z",
     "updatedAt": "2026-07-29T14:35:28.031Z"
+  },
+  {
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-101",
+    "subject": "Quarterly Executive Review",
+    "amount": null,
+    "occurredAt": "2026-07-30T14:00:00Z",
+    "status": "confirmed",
+    "metadata": {
+      "id": "evt-101",
+      "summary": "Quarterly Executive Review",
+      "start": "2026-07-30T14:00:00Z",
+      "status": "confirmed",
+      "description": "Strategy alignment",
+      "externalId": "evt-101"
+    },
+    "id": "0cef146a-1a8f-4e64-a7d8-244443d4df2f",
+    "createdAt": "2026-07-29T16:08:16.701Z",
+    "updatedAt": "2026-07-29T16:08:17.396Z"
+  },
+  {
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-102",
+    "subject": "Engineering Architecture Sync",
+    "amount": null,
+    "occurredAt": "2026-07-31T09:00:00Z",
+    "status": "tentative",
+    "metadata": {
+      "id": "evt-102",
+      "summary": "Engineering Architecture Sync",
+      "start": "2026-07-31T09:00:00Z",
+      "status": "tentative",
+      "description": "Pipeline review",
+      "externalId": "evt-102"
+    },
+    "id": "cb49c44d-3857-492e-ba62-5e040d7413a2",
+    "createdAt": "2026-07-29T16:08:16.701Z",
+    "updatedAt": "2026-07-29T16:08:17.397Z"
+  },
+  {
+    "source": "calendar",
+    "sourceRecordType": "event",
+    "externalId": "evt-103",
+    "subject": "Customer Onboarding Kickoff",
+    "amount": null,
+    "occurredAt": "2026-08-01T16:00:00Z",
+    "status": "confirmed",
+    "metadata": {
+      "id": "evt-103",
+      "summary": "Customer Onboarding Kickoff",
+      "start": "2026-08-01T16:00:00Z",
+      "status": "confirmed",
+      "description": "Northwind onboarding",
+      "externalId": "evt-103"
+    },
+    "id": "f79c00e5-1741-4934-8ffa-a76d1c7b85ef",
+    "createdAt": "2026-07-29T16:08:16.701Z",
+    "updatedAt": "2026-07-29T16:08:17.397Z"
+  },
+  {
+    "source": "payments",
+    "sourceRecordType": "payment",
+    "externalId": "real-pay-555",
+    "subject": "INV-REAL-555",
+    "amount": 9999,
+    "occurredAt": "2026-07-29T16:08:18.855Z",
+    "status": "paid",
+    "metadata": {
+      "id": "real-pay-555",
+      "invoiceNo": "INV-REAL-555",
+      "amount": 9999,
+      "status": "paid"
+    },
+    "id": "abaa0019-7f75-44eb-92b9-76c9c9c70fc4",
+    "createdAt": "2026-07-29T16:08:18.855Z",
+    "updatedAt": "2026-07-29T16:08:18.855Z"
   }
 ]
