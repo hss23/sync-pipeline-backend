@@ -6,9 +6,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '../..');
 
-dotenv.config({ path: path.resolve(rootDir, '.env') });
-
 export function getEnv() {
+    dotenv.config({ path: path.resolve(rootDir, '.env') });
+
     return {
         nodeEnv: process.env.NODE_ENV || 'development',
         port: Number(process.env.PORT || 3000),

@@ -4,6 +4,16 @@ const sampleCalendarEvents = [
   { id: 'evt-103', summary: 'Customer Onboarding Kickoff', start: '2026-08-01T16:00:00Z', status: 'confirmed', description: 'Northwind onboarding' }
 ];
 
+function parseToken(input) {
+  if (!input) return null;
+  if (typeof input === 'object') return input;
+  try {
+    return JSON.parse(input);
+  } catch {
+    return null;
+  }
+}
+
 export class CalendarAdapter {
   constructor({ tokenJson = process.env.GOOGLE_CALENDAR_TOKEN_JSON } = {}) {
     this.tokenJson = tokenJson;
@@ -18,9 +28,9 @@ export class CalendarAdapter {
       throw err;
     }
 
-    if (this.tokenJson) {
+    const token = parseToken(this.tokenJson);
+    if (token?.access_token) {
       try {
-        const token = JSON.parse(this.tokenJson);
         const url = new URL('https://www.googleapis.com/calendar/v3/calendars/primary/events');
         url.searchParams.set('maxResults', '250');
 
@@ -79,8 +89,8 @@ export class CalendarAdapter {
   }
 
   async fetchFull() {
-    if (this.tokenJson) {
-      const token = JSON.parse(this.tokenJson);
+    const token = parseToken(this.tokenJson);
+    if (token?.access_token) {
       const url = new URL('https://www.googleapis.com/calendar/v3/calendars/primary/events');
       url.searchParams.set('maxResults', '250');
 

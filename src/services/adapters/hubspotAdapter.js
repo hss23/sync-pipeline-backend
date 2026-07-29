@@ -1,3 +1,5 @@
+import { getEnv } from '../../config/env.js';
+
 const sampleHubSpotContacts = [
   { id: 'hs-101', name: 'Ava Patel', company: 'Northwind Traders', stage: 'lead', createdAt: '2026-07-29T10:00:00Z', email: 'ava@northwind.com' },
   { id: 'hs-102', name: 'Liam Ortiz', company: 'Blue Mesa Tech', stage: 'customer', createdAt: '2026-07-29T11:30:00Z', email: 'liam@bluemesa.com' },
@@ -5,7 +7,7 @@ const sampleHubSpotContacts = [
 ];
 
 export class HubSpotAdapter {
-  constructor({ token = process.env.HUBSPOT_ACCESS_TOKEN } = {}) {
+  constructor({ token = getEnv().hubspotAccessToken || process.env.HUBSPOT_ACCESS_TOKEN } = {}) {
     this.token = token;
     this.source = 'hubspot';
   }

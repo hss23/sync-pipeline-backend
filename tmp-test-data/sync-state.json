@@ -1,26 +1,26 @@
 {
   "hubspot": {
     "cursor": "hs-cursor-v1-next-next",
-    "lastSuccessAt": "2026-07-29T13:25:11.091Z",
+    "lastSuccessAt": "2026-07-29T14:26:17.370Z",
     "lastError": "Source hubspot returned 500 internal server error / garbage response",
     "lastErrorCode": "source_failure",
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T13:25:11.107Z"
+    "updatedAt": "2026-07-29T14:26:18.372Z"
   },
   "payments": {
     "cursor": "pay-cursor-full-v1-next",
-    "lastSuccessAt": "2026-07-29T13:25:11.107Z",
+    "lastSuccessAt": "2026-07-29T14:26:18.373Z",
     "lastError": null,
     "lastErrorCode": null,
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T13:25:11.107Z"
+    "updatedAt": "2026-07-29T14:26:18.373Z"
   },
   "calendar": {
-    "cursor": "cal-sync-token-full-v1-next",
-    "lastSuccessAt": "2026-07-29T13:25:11.108Z",
+    "cursor": "CO_2gcPe95UDEO_2gcPe95UDGAUgtOynxgMotOynxgM=",
+    "lastSuccessAt": "2026-07-29T14:26:19.244Z",
     "lastError": null,
     "lastErrorCode": null,
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T13:25:11.108Z"
+    "updatedAt": "2026-07-29T14:26:19.244Z"
   }
 }
