@@ -156,8 +156,28 @@ export function createDocsRouter() {
       </div>
 
       <div class="card">
-        <h2>Example curl</h2>
-        <pre>curl http://localhost:3000/health</pre>
+        <h2>Runtime examples</h2>
+        <h3>GET /health</h3>
+        <pre>curl https://your-app-name.onrender.com/health</pre>
+
+        <h3>POST /sync/run</h3>
+        <pre>curl -X POST https://your-app-name.onrender.com/sync/run \
+  -H "Content-Type: application/json" \
+  -d '{"sources":["hubspot","payments","calendar"]}'</pre>
+
+        <h3>GET /records</h3>
+        <pre>curl https://your-app-name.onrender.com/records</pre>
+
+        <h3>POST /webhook/payments</h3>
+        <pre>curl -X POST https://your-app-name.onrender.com/webhook/payments \
+  -H "Content-Type: application/json" \
+  -d '{"id":"pay-999","invoiceNo":"INV-999","amount":500,"status":"paid"}'</pre>
+
+        <h3>POST /admin/seed</h3>
+        <pre>curl -X POST https://your-app-name.onrender.com/admin/seed</pre>
+
+        <h3>GET /admin/sync/status</h3>
+        <pre>curl https://your-app-name.onrender.com/admin/sync/status</pre>
       </div>
     </main>
 
