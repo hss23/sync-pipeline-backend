@@ -1,26 +1,26 @@
 {
   "hubspot": {
     "cursor": null,
-    "lastSuccessAt": "2026-07-29T16:08:18.799Z",
+    "lastSuccessAt": "2026-07-30T04:23:55.473Z",
     "lastError": null,
     "lastErrorCode": null,
     "lastMode": "incremental",
-    "updatedAt": "2026-07-29T16:08:18.799Z"
+    "updatedAt": "2026-07-30T04:23:55.473Z"
   },
   "payments": {
-    "cursor": "pay-cursor-v1-next-next",
-    "lastSuccessAt": "2026-07-29T16:08:16.770Z",
-    "lastError": null,
-    "lastErrorCode": null,
-    "lastMode": "incremental",
-    "updatedAt": "2026-07-29T16:08:16.770Z"
+    "cursor": "pay-cursor-full-v1",
+    "lastSuccessAt": "2026-07-30T04:23:54.808Z",
+    "lastError": "Payments incremental cursor is stale or invalid",
+    "lastErrorCode": "stale_cursor",
+    "lastMode": "fullbackfill",
+    "updatedAt": "2026-07-30T04:23:54.808Z"
   },
   "calendar": {
     "cursor": "cal-sync-token-full-v1",
-    "lastSuccessAt": "2026-07-29T16:08:17.397Z",
-    "lastError": "Google Calendar syncToken/token expired or invalid (401)",
+    "lastSuccessAt": "2026-07-30T04:23:54.808Z",
+    "lastError": "Sync token is invalid or expired (410 Gone)",
     "lastErrorCode": "410",
     "lastMode": "fullbackfill",
-    "updatedAt": "2026-07-29T16:08:17.397Z"
+    "updatedAt": "2026-07-30T04:23:54.808Z"
   }
 }

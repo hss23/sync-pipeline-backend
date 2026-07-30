@@ -4,6 +4,7 @@ import { createSyncRouter } from './routes/sync.js';
 import { createRecordsRouter } from './routes/records.js';
 import { createWebhookRouter } from './routes/webhook.js';
 import { createAdminRouter } from './routes/admin.js';
+import { createDocsRouter } from './routes/docs.js';
 import { createAppErrorMiddleware } from './middleware/error.js';
 import { ensureDataDir } from './config/storage.js';
 
@@ -17,6 +18,10 @@ export function createApp() {
   app.use('/records', createRecordsRouter());
   app.use('/webhook', createWebhookRouter());
   app.use('/admin', createAdminRouter());
+  app.use('/docs', createDocsRouter());
+  app.get('/', (req, res) => {
+    res.redirect('/docs');
+  });
 
   app.get('/oauth2callback', async (req, res, next) => {
     try {

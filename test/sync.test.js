@@ -32,6 +32,19 @@ test('health endpoint returns 200 OK', async () => {
   assert.equal(body.service, 'sync-pipeline-backend');
 });
 
+test('docs UI and OpenAPI spec are available', async () => {
+  const docsRes = await fetch(`${baseUrl}/docs`);
+  assert.equal(docsRes.status, 200);
+  const docsHtml = await docsRes.text();
+  assert.match(docsHtml, /Sync Pipeline API/i);
+
+  const specRes = await fetch(`${baseUrl}/docs/openapi.json`);
+  assert.equal(specRes.status, 200);
+  const spec = await specRes.json();
+  assert.equal(spec.openapi, '3.0.3');
+  assert.ok(spec.paths['/health']);
+});
+
 test('HubSpot adapter reads the access token from project env config', async () => {
   const envPath = path.resolve('./.env');
   const previousEnv = fs.existsSync(envPath) ? fs.readFileSync(envPath, 'utf8') : '';

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sync-pipeline-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: SYNC_DATA_DIR
+        value: data
