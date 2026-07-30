@@ -51,3 +51,8 @@ These values are optional for basic local testing, because the app can also run 
 - HubSpot API: https://developers.hubspot.com/docs/api/crm/contacts
 - Google Calendar API: https://developers.google.com/calendar
 - Postman collection: postman/Sync Pipeline Backend API.postman_collection.json
+
+## AI Usage
+
+- Copilot: For generating test cases and testing the apis
+- ChatGpt For Calendar Api Integration: https://chatgpt.com/share/6a6acaee-810c-83e8-a4d4-8b7a9285d39d
