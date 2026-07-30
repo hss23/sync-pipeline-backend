@@ -130,6 +130,10 @@ export function createDocsRouter() {
       a { color: #60a5fa; }
       .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #2563eb; font-size: 0.9rem; margin-right: 0.5rem; }
       button { background: #10b981; color: white; border: none; padding: 0.6rem 1rem; border-radius: 8px; cursor: pointer; }
+      .example { margin-bottom: 1rem; padding: 0.9rem; border: 1px solid #374151; border-radius: 8px; background: #0f172a; }
+      .example-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+      .example pre { margin: 0.25rem 0 0; }
+      .example-output { margin-top: 0.6rem; white-space: pre-wrap; font-size: 0.95rem; color: #d1fae5; }
     </style>
   </head>
   <body>
@@ -157,31 +161,111 @@ export function createDocsRouter() {
 
       <div class="card">
         <h2>Runtime examples</h2>
-        <h3>GET /health</h3>
-        <pre>curl https://your-app-name.onrender.com/health</pre>
 
-        <h3>POST /sync/run</h3>
-        <pre>curl -X POST https://your-app-name.onrender.com/sync/run \
-  -H "Content-Type: application/json" \
-  -d '{"sources":["hubspot","payments","calendar"]}'</pre>
+        <div class="example">
+          <div class="example-header">
+            <h3>GET /health</h3>
+            <button data-run="health">Run</button>
+          </div>
+          <pre>curl https://your-app-name.onrender.com/health</pre>
+          <div class="example-output" id="output-health">Click Run to execute.</div>
+        </div>
 
-        <h3>GET /records</h3>
-        <pre>curl https://your-app-name.onrender.com/records</pre>
+        <div class="example">
+          <div class="example-header">
+            <h3>POST /sync/run</h3>
+            <button data-run="sync">Run</button>
+          </div>
+          <pre>curl -X POST https://your-app-name.onrender.com/sync/run -H "Content-Type: application/json" -d '{"sources":["hubspot","payments","calendar"]}'</pre>
+          <div class="example-output" id="output-sync">Click Run to execute.</div>
+        </div>
 
-        <h3>POST /webhook/payments</h3>
-        <pre>curl -X POST https://your-app-name.onrender.com/webhook/payments \
-  -H "Content-Type: application/json" \
-  -d '{"id":"pay-999","invoiceNo":"INV-999","amount":500,"status":"paid"}'</pre>
+        <div class="example">
+          <div class="example-header">
+            <h3>GET /records</h3>
+            <button data-run="records">Run</button>
+          </div>
+          <pre>curl https://your-app-name.onrender.com/records</pre>
+          <div class="example-output" id="output-records">Click Run to execute.</div>
+        </div>
 
-        <h3>POST /admin/seed</h3>
-        <pre>curl -X POST https://your-app-name.onrender.com/admin/seed</pre>
+        <div class="example">
+          <div class="example-header">
+            <h3>POST /webhook/payments</h3>
+            <button data-run="webhook">Run</button>
+          </div>
+          <pre>curl -X POST https://your-app-name.onrender.com/webhook/payments -H "Content-Type: application/json" -d '{"id":"pay-999","invoiceNo":"INV-999","amount":500,"status":"paid"}'</pre>
+          <div class="example-output" id="output-webhook">Click Run to execute.</div>
+        </div>
 
-        <h3>GET /admin/sync/status</h3>
-        <pre>curl https://your-app-name.onrender.com/admin/sync/status</pre>
+        <div class="example">
+          <div class="example-header">
+            <h3>POST /admin/seed</h3>
+            <button data-run="seed">Run</button>
+          </div>
+          <pre>curl -X POST https://your-app-name.onrender.com/admin/seed</pre>
+          <div class="example-output" id="output-seed">Click Run to execute.</div>
+        </div>
+
+        <div class="example">
+          <div class="example-header">
+            <h3>GET /admin/sync/status</h3>
+            <button data-run="status">Run</button>
+          </div>
+          <pre>curl https://your-app-name.onrender.com/admin/sync/status</pre>
+          <div class="example-output" id="output-status">Click Run to execute.</div>
+        </div>
       </div>
     </main>
 
     <script>
+      const runExample = async (endpoint, outputId) => {
+        const output = document.getElementById(outputId);
+        output.textContent = 'Running...';
+        try {
+          let response;
+          switch (endpoint) {
+            case 'health':
+              response = await fetch('/health');
+              break;
+            case 'sync':
+              response = await fetch('/sync/run', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ sources: ['hubspot', 'payments', 'calendar'] })
+              });
+              break;
+            case 'records':
+              response = await fetch('/records');
+              break;
+            case 'webhook':
+              response = await fetch('/webhook/payments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: 'pay-999', invoiceNo: 'INV-999', amount: 500, status: 'paid' })
+              });
+              break;
+            case 'seed':
+              response = await fetch('/admin/seed', { method: 'POST' });
+              break;
+            case 'status':
+              response = await fetch('/admin/sync/status');
+              break;
+            default:
+              throw new Error('Unknown endpoint');
+          }
+
+          const text = await response.text();
+          try {
+            output.textContent = JSON.stringify(JSON.parse(text), null, 2);
+          } catch {
+            output.textContent = text || 'No response body';
+          }
+        } catch (error) {
+          output.textContent = error.message;
+        }
+      };
+
       document.getElementById('healthButton').addEventListener('click', async () => {
         const result = document.getElementById('result');
         try {
@@ -191,6 +275,12 @@ export function createDocsRouter() {
         } catch (error) {
           result.textContent = error.message;
         }
+      });
+
+      document.querySelectorAll('[data-run]').forEach((button) => {
+        button.addEventListener('click', () => {
+          runExample(button.getAttribute('data-run'), 'output-' + button.getAttribute('data-run'));
+        });
       });
     </script>
   </body>
