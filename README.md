@@ -56,3 +56,8 @@ These values are optional for basic local testing, because the app can also run 
 
 - Copilot: For generating test cases and testing the apis
 - ChatGpt For Calendar Api Integration: https://chatgpt.com/share/6a6acaee-810c-83e8-a4d4-8b7a9285d39d
+
+## Live Links
+
+- Live URL: https://sync-pipeline-backend.onrender.com/health
+- Demo Link: https://drive.google.com/file/d/1P4keprtmxjNNTCQPRKKODVqRy7pBxLG-/view?usp=sharing
